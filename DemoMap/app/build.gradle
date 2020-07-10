@@ -1,0 +1,84 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.huawei.agconnect'  // HUAWEI agconnect Gradle plugin
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.test.map"
+        minSdkVersion 28
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file('D:\\key_store\\map_demo1.jks')
+            keyAlias 'android'
+            keyPassword 'andoid'
+            storePassword 'android'
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+        debug {
+            storeFile file('D:\\key_store\\map_demo1.jks')
+            storePassword 'android'
+            keyAlias = 'android'
+            keyPassword 'android'
+        }
+
+        /*debug {
+            storeFile file('D:\\key_store\\map_demo1.jks')
+            keyAlias 'android'
+            keyPassword 'andoid'
+            storePassword 'android'
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }*/
+
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            //signingConfig signingConfigs.debug
+            debuggable true
+            minifyEnabled false
+            useProguard true
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    implementation 'com.huawei.hms:maps:4.0.1.301'
+    implementation 'com.huawei.hms:location:4.0.2.300'
+
+
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation ('com.squareup.retrofit2:retrofit:2.9.0'){
+        exclude module: 'okhttp'
+    }
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.7.2'
+    implementation("com.squareup.okhttp3:okhttp:4.7.2")
+}

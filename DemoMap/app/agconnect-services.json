@@ -1,0 +1,12 @@
+{
+	"client":{
+		"cp_id":"2640091000002032901",
+		"product_id":"736430079244541478",
+		"client_id":"396983678523147456",
+		"client_secret":"BB4927354E16C42F1E2360554D5731C7F15A0808F4695A486A8B600CB8A27F21",
+		"app_id":"102493587",
+		"package_name":"com.test.map",
+		"api_key":"CgB6e3x9UwA/Le7Lfj5pnrNBBIkeVnM41hNLuUXdN7rMshoBNi4L+nUGhzxzyySAp3kKOYrkw1jHAPJy8ZwJKF69"
+	},
+	"configuration_version":"1.0"
+}
